@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LeadSignal AI | Enterprise</title>
+<style>
+:root{--bg:#081321;--side:#0b1929;--panel:#102238;--panel2:#142b43;--line:#29425c;--txt:#edf5ff;--muted:#9aadc4;--cyan:#5de0e8;--blue:#829aff;--green:#61e2ae;--gold:#ffc875}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 Inter,system-ui,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:var(--side);border-right:1px solid var(--line);padding:22px 15px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:850;margin:2px 8px 28px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#071321;font-weight:900}.navlabel{font-size:10px;color:#7188a3;letter-spacing:1.5px;margin:17px 10px 7px}.nav button{width:100%;text-align:left;background:transparent;color:var(--muted);border:0;padding:11px 12px;border-radius:10px;margin:2px 0}.nav button.active,.nav button:hover{background:#18324c;color:white}.planbox{margin-top:auto;border:1px solid var(--line);background:#10243a;padding:14px;border-radius:13px;color:var(--muted);font-size:12px}.planbox b{display:block;color:var(--cyan);margin-bottom:4px}
+main{padding:25px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px}.eyebrow{font-size:10px;letter-spacing:1.7px;color:var(--cyan);font-weight:800}h1{font-size:27px;margin:4px 0}.muted{color:var(--muted)}.topright{display:flex;align-items:center;gap:10px}.pill{border:1px solid #367b86;background:#0d2a36;color:var(--cyan);padding:7px 11px;border-radius:99px;font-size:11px;font-weight:800}.avatar{width:35px;height:35px;border-radius:50%;background:#294967;display:grid;place-items:center;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:17px 0}.card{background:linear-gradient(180deg,#122840,#0e1d30);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0}.k{font-size:12px;color:var(--muted)}.v{font-size:27px;font-weight:850;margin:7px 0 2px}.up{font-size:11px;color:var(--green)}.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:13px;margin-top:13px}.card h2{font-size:16px;margin:0 0 5px}.hint{font-size:12px;color:var(--muted);margin:0 0 15px}.insight{background:#0a1c2d;border:1px solid #294a63;padding:12px;border-radius:10px;margin:9px 0;font-size:13px}.insight b{color:var(--cyan)}.btn{background:linear-gradient(90deg,var(--cyan),#8aa2ff);color:#071321;border:0;border-radius:9px;padding:10px 13px;font-weight:800}.btn2{background:#1a3551;color:var(--txt);border:1px solid #36516e;border-radius:9px;padding:9px 12px}.btnsmall{padding:6px 9px;font-size:11px}.barrow{display:grid;grid-template-columns:90px 1fr 35px;gap:9px;align-items:center;margin:13px 0;font-size:12px;color:var(--muted)}.track{height:8px;background:#263e58;border-radius:9px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:11px 7px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:10px;letter-spacing:.5px}.status{color:var(--green)}.actions{display:flex;gap:8px;flex-wrap:wrap}.page{display:none}.page.active{display:block}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px;margin:8px 0}.field label{font-size:12px;color:var(--muted)}.field input,.field select,.field textarea{background:#091a2b;color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:10px;min-width:0}.field textarea{min-height:90px}.metriclist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metriclist .card{padding:13px}.notice{padding:12px;border:1px solid #765d32;background:#2a2418;color:#ffdda2;border-radius:10px;font-size:12px;margin-top:13px}.empty{padding:24px;text-align:center;color:var(--muted)}.hidden{display:none!important}.footer{font-size:11px;color:#8499b2;margin:20px 0;line-height:1.5}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}main{padding:17px}.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}
+@media(max-width:520px){main{padding:12px}.top{align-items:flex-start;flex-direction:column}.topright{width:100%;justify-content:space-between}.v{font-size:22px}.formrow,.metriclist{grid-template-columns:1fr}.barrow{grid-template-columns:72px 1fr 30px}}
+</style></head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">LS</div>LeadSignal AI</div>
+ <div class="navlabel">WORKSPACE</div>
+ <nav class="nav">
+  <button class="active" data-page="overview">▦ &nbsp; Overview</button>
+  <button data-page="leads">◎ &nbsp; Lead management</button>
+  <button data-page="advisor">✦ &nbsp; AI business advisor</button>
+  <button data-page="reports">▤ &nbsp; Reports & analytics</button>
+  <button data-page="team">♙ &nbsp; Team workspace</button>
+  <div class="navlabel">ACCOUNT</div>
+  <button data-page="subscription">◇ &nbsp; Subscription</button>
+  <button data-page="settings">⚙ &nbsp; Settings</button>
+ </nav>
+ <div class="planbox"><b>ENTERPRISE EDITION</b>Highest proposed tier<br>Illustrative price: $199 / month</div>
+</aside>
+<main>
+<header class="top"><div><div class="eyebrow">LEADSIGNAL AI · ENTERPRISE</div><h1 id="pageTitle">Business overview</h1><div class="muted" id="pageSubtitle">Your leads, team activity and sales opportunities.</div></div><div class="topright"><span class="pill">✦ ENTERPRISE DEMO</span><div class="avatar">A</div></div></header>
+
+<section class="page active" id="overview">
+ <div class="grid">
+  <div class="card"><div class="k">Total enquiries</div><div class="v" id="totalLeads">1,284</div><div class="up">↑ 18% · sample data</div></div>
+  <div class="card"><div class="k">Qualified leads</div><div class="v">462</div><div class="up">↑ 12% · sample data</div></div>
+  <div class="card"><div class="k">Pipeline value</div><div class="v">$84,650</div><div class="up">↑ 9% · sample data</div></div>
+  <div class="card"><div class="k">Average response</div><div class="v">8 min</div><div class="up">↓ 21% · sample data</div></div>
+ </div>
+ <div class="cols">
+  <div class="card"><h2>Enterprise AI business advisor</h2><p class="hint">Illustrative business insights</p>
+   <div class="insight"><b>Opportunity:</b> Website enquiries are converting best in this sample. Consider assigning new website leads to your fastest responders.</div>
+   <div class="insight"><b>Follow-up alert:</b> 14 sample leads may need attention. Timely follow-up can help prevent missed opportunities.</div>
+   <div class="insight"><b>Forecast:</b> The sample pipeline suggests $18,200 in near-term opportunities. This is an estimate, not guaranteed revenue.</div>
+   <button class="btn" onclick="go('advisor')">Open AI advisor</button>
+  </div>
+  <div class="card"><h2>Lead sources</h2><p class="hint">Where sample enquiries came from</p>
+   <div class="barrow"><span>Website</span><div class="track"><div class="fill" style="width:88%"></div></div><b>44%</b></div>
+   <div class="barrow"><span>WhatsApp</span><div class="track"><div class="fill" style="width:64%"></div></div><b>32%</b></div>
+   <div class="barrow"><span>Referral</span><div class="track"><div class="fill" style="width:30%"></div></div><b>15%</b></div>
+   <div class="barrow"><span>Other</span><div class="track"><div class="fill" style="width:18%"></div></div><b>9%</b></div>
+  </div>
+ </div>
+ <div class="notice">Demo only: figures and business names are invented examples. No real customer data is connected.</div>
+</section>
+
+<section class="page" id="leads">
+ <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div><h2>Lead management</h2><p class="hint">Add and organise example customer opportunities.</p></div><button class="btn" onclick="showAdd()">+ Add lead</button></div>
+ <div class="field"><label>Search leads</label><input id="searchLead" placeholder="Search by business name..." oninput="renderLeads()"></div>
+ <div style="overflow:auto"><table><thead><tr><th>BUSINESS</th><th>CONTACT</th><th>SOURCE</th><th>SCORE</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="leadRows"></tbody></table></div>
+ <div id="addPanel" class="hidden"><h2 style="margin-top:20px">Add a sample lead</h2><div class="formrow"><div class="field"><label>Business name</label><input id="newName" placeholder="e.g. Example Stores"></div><div class="field"><label>Contact name</label><input id="newContact" placeholder="e.g. Alex"></div><div class="field"><label>Source</label><select id="newSource"><option>Website</option><option>WhatsApp</option><option>Referral</option><option>Other</option></select></div><div class="field"><label>Status</label><select id="newStatus"><option>New</option><option>Contacted</option><option>Qualified</option><option>Follow up</option></select></div></div><button class="btn" onclick="saveLead()">Save sample lead</button> <button class="btn2" onclick="showAdd(false)">Cancel</button></div>
+ </div>
+</section>
+
+<section class="page" id="advisor">
+ <div class="card"><h2>Enterprise AI business advisor</h2><p class="hint">Ask for a sample business suggestion. This demo uses preset example responses, not a live AI service.</p>
+ <div class="field"><label>Your question</label><textarea id="aiQuestion" placeholder="Example: How can I improve my lead follow-up?"></textarea></div><button class="btn" onclick="askDemoAI()">Generate demo insight</button>
+ <div class="insight" id="aiAnswer">Your example insight will appear here.</div>
+ <div class="notice">A production AI advisor needs a securely connected AI provider, server-side API key protection, usage limits and a privacy policy.</div></div>
+</section>
+
+<section class="page" id="reports">
+ <div class="metriclist"><div class="card"><div class="k">Lead conversion (sample)</div><div class="v">36%</div></div><div class="card"><div class="k">Follow-ups due</div><div class="v">14</div></div><div class="card"><div class="k">Avg. deal size</div><div class="v">$1,840</div></div></div>
+ <div class="card" style="margin-top:14px"><h2>Enterprise report centre</h2><p class="hint">Choose a report to view a sample summary.</p><div class="actions"><button class="btn2" onclick="makeReport('Weekly lead performance')">Weekly lead report</button><button class="btn2" onclick="makeReport('Sales pipeline summary')">Pipeline summary</button><button class="btn2" onclick="makeReport('Team response performance')">Team response report</button></div><div class="insight" id="reportOutput">Choose a report to display its sample summary.</div></div>
+</section>
+
+<section class="page" id="team">
+ <div class="card"><h2>Team workspace</h2><p class="hint">Example roles for a company workspace.</p>
+ <table><thead><tr><th>ROLE</th><th>PERMISSIONS</th><th>EXAMPLE ACCESS</th></tr></thead><tbody><tr><td>Owner</td><td>All workspace controls</td><td class="status">Full access</td></tr><tr><td>Sales manager</td><td>Manage leads and reports</td><td class="status">Manager</td></tr><tr><td>Sales agent</td><td>Assigned leads only</td><td class="status">Limited</td></tr><tr><td>Analyst</td><td>View analytics</td><td class="status">Read only</td></tr></tbody></table>
+ <div class="notice">Real team invitations, separate company data and secure permissions need backend authentication and database rules.</div></div>
+</section>
+
+<section class="page" id="subscription">
+ <div class="card"><h2>Enterprise subscription</h2><p class="hint">Proposed pricing concept — no payment is being collected here.</p>
+ <div class="v">$199 <span class="k">/ month per business</span></div><p class="muted">The business customer would pay this proposed amount to subscribe to Enterprise. It is not a fee you pay to own the software.</p>
+ <ul class="muted"><li>Advanced AI insights (once connected)</li><li>Lead and pipeline analytics</li><li>Team roles and permissions</li><li>Automated business reports</li><li>Higher usage limits (to be configured)</li></ul>
+ <button class="btn2" onclick="alert('Demo only: payment checkout is not connected yet.')">Subscription checkout (demo)</button>
+ <div class="notice">To accept real subscriptions, we must connect a payment provider, configure recurring billing, handle cancellations and refunds, and set up a verified payout account.</div></div>
+</section>
+
+<section class="page" id="settings">
+ <div class="card"><h2>Workspace settings</h2><p class="hint">Example settings panel.</p>
+ <div class="formrow"><div class="field"><label>Company name</label><input placeholder="Your company name"></div><div class="field"><label>Workspace email</label><input placeholder="admin@company.com" type="email"></div><div class="field"><label>Preferred currency</label><select><option>USD — US Dollar</option><option>NGN — Nigerian Naira</option><option>GBP — British Pound</option></select></div><div class="field"><label>Time zone</label><select><option>Africa/Lagos</option><option>UTC</option></select></div></div><button class="btn" onclick="alert('Demo only: settings are not saved to a server.')">Save demo settings</button>
+ <div class="notice">This form is visual only. A real version needs secure user accounts and server-side saving.</div></div>
+</section>
+
+<p class="footer">LeadSignal AI Enterprise prototype. This is a local website demo with sample data and simulated interactions. It is not yet a live SaaS: registration, secure login, cloud database, real AI, company isolation, integrations, recurring payments, hosting and production security still need implementation. Do not enter real or confidential customer information.</p>
+</main></div>
+<script>
+const pages={overview:['Business overview','Your leads, team activity and sales opportunities.'],leads:['Lead management','Organise potential customers and follow-ups.'],advisor:['AI business advisor','Explore example AI-powered business assistance.'],reports:['Reports & analytics','Understand lead activity and pipeline performance.'],team:['Team workspace','Example team roles and permissions.'],subscription:['Enterprise subscription','Proposed pricing and subscription information.'],settings:['Workspace settings','Configure your example workspace.']};
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('pageTitle').textContent=pages[id][0];document.getElementById('pageSubtitle').textContent=pages[id][1];}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+let leads=[['Northstar Stores','Maya James','Website','94','Qualified'],['BrightPath School','Daniel Okoro','Referral','88','Follow up'],['UrbanNest Realty','Amina Bello','WhatsApp','76','Contacted'],['Cedar Foods','Tomi Ade','Website','71','New']];
+function renderLeads(){let q=(document.getElementById('searchLead')?.value||'').toLowerCase();document.getElementById('leadRows').innerHTML='';leads.filter(x=>x[0].toLowerCase().includes(q)).forEach((x,i)=>{let tr=document.createElement('tr');x.forEach((v,j)=>{let td=document.createElement('td');td.textContent=j===3?v+'/100':v;if(j===4)td.className='status';tr.appendChild(td)});let td=document.createElement('td'),bt=document.createElement('button');bt.className='btn2 btnsmall';bt.textContent='Update status';bt.onclick=()=>{leads[i][4]=leads[i][4]==='Contacted'?'Follow up':'Contacted';renderLeads()};td.appendChild(bt);tr.appendChild(td);document.getElementById('leadRows').appendChild(tr)})}
+function showAdd(show=true){document.getElementById('addPanel').classList.toggle('hidden',!show)}
+function saveLead(){let n=document.getElementById('newName').value.trim();if(!n){alert('Enter a business name first.');return}leads.unshift([n,document.getElementById('newContact').value||'Not provided',document.getElementById('newSource').value,'—',document.getElementById('newStatus').value]);renderLeads();showAdd(false);document.getElementById('newName').value=''}
+function askDemoAI(){let q=document.getElementById('aiQuestion').value.trim();if(!q){alert('Type a question first.');return}document.getElementById('aiAnswer').innerHTML='<b>Demo advisor:</b> Start by reviewing your newest enquiries, prioritising customers with clear buying interest, and setting a follow-up owner and date for each lead. This is a preset example response, not a live AI-generated analysis.'}
+function makeReport(t){document.getElementById('reportOutput').textContent=t+': This example report summarises sample lead activity, response patterns and pipeline movement. A live version would calculate this from your connected business data.'}
+renderLeads();
+</script></body></html>
